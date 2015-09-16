@@ -13,7 +13,7 @@ public class SceneTennis extends Scene implements Constants {
 
     private Delay delay;
     private int step_ball = 2;
-    private int step_racket = 3;
+    private double step_racket = 0.3;
 
     public SceneTennis(Game game) {
         super(game);

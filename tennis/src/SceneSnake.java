@@ -130,6 +130,10 @@ public class SceneSnake extends Scene implements Constants {
                 case KeyEvent.VK_LEFT:
                     snake.setDirection(Direction.LEFT);
                     break;
+            }
+        }
+        for (KeyEvent event : game.getInput().getKeyReleasedEvents()) {
+            switch (event.getKeyCode()) {
                 case KeyEvent.VK_ESCAPE:
                     game.setScene(new SceneStart(game));
                     break;

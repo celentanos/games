@@ -6,12 +6,12 @@ import java.awt.*;
  */
 public class Racket implements Border, GraphObject {
 
-    private int x;
-    private int y;
-    private int w;
-    private int h;
+    private double x;
+    private double y;
+    private double w;
+    private double h;
 
-    public Racket(int x, int y, int w, int h) {
+    public Racket(double x, double y, double w, double h) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -20,63 +20,63 @@ public class Racket implements Border, GraphObject {
 
     @Override
     public int getLeftBorder() {
-        return x;
+        return (int)x;
     }
 
     @Override
     public int getRightBorder() {
-        return x + w;
+        return (int)x + (int)w;
     }
 
     @Override
     public int getTopBorder() {
-        return y;
+        return (int)y;
     }
 
     @Override
     public int getDownBorder() {
-        return y + h;
+        return (int)y + (int)h;
     }
 
     @Override
     public int getMiddleW() {
-        return x + (w / 2);
+        return (int)x + ((int)w / 2);
     }
 
     @Override
     public int getMiddleH() {
-        return y + (h / 2);
+        return (int)y + ((int)h / 2);
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public int getW() {
+    public double getW() {
         return w;
     }
 
-    public void setW(int w) {
+    public void setW(double w) {
         this.w = w;
     }
 
-    public int getH() {
+    public double getH() {
         return h;
     }
 
-    public void setH(int h) {
+    public void setH(double h) {
         this.h = h;
     }
 
@@ -84,6 +84,6 @@ public class Racket implements Border, GraphObject {
     @Override
     public void draw(Graphics2D g2d) {
         g2d.setColor(Color.green);
-        g2d.fillRect(x, y, w, h);
+        g2d.fillRect((int)x, (int)y, (int)w, (int)h);
     }
 }

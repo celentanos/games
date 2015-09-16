@@ -36,7 +36,6 @@ public class GameCanvas extends Canvas implements Game, Runnable {
                         } catch (InterruptedException e2) {
                             e2.printStackTrace();
                         }
-//                        frame.setEnd(true);
                         frame.dispose();
                         System.exit(0);
                     }
