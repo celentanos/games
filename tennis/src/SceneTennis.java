@@ -11,9 +11,10 @@ public class SceneTennis extends Scene implements Constants {
     private Racket racket2;
     private ScoreTennis score;
 
-    private Delay delay;
+    private Delay delay_logic;
+    private Delay delay_input;
     private int step_ball = 2;
-    private double step_racket = 0.3;
+    private double step_racket = 0.6;
 
     public SceneTennis(Game game) {
         super(game);
@@ -23,14 +24,16 @@ public class SceneTennis extends Scene implements Constants {
         racket2 = new Racket(WORLD_WIDTH * CELL_SIZE - 10, 10, 10, 60);
         score = new ScoreTennis(WORLD_WIDTH * CELL_SIZE);
 
-        delay = new Delay(10);
+        delay_logic = new Delay(10);
+        delay_input = new Delay(2);
     }
 
     @Override
     public void update(long nanosPassed) {
-        processInput();
+        if (delay_input.updateAndCheck(nanosPassed))
+            processInput();
 
-        if (delay.updateAndCheck(nanosPassed)) {
+        if (delay_logic.updateAndCheck(nanosPassed)) {
             // X ---------------------------------------------------------------
 //            if (ball.getLeftBorder() < 1 + step_ball)
 //                ball.setVector(step_ball, ball.getVector().getY());
@@ -58,7 +61,6 @@ public class SceneTennis extends Scene implements Constants {
                     }
                 } else
                     ball.setVector(-step_ball, ball.getVector().getY());
-
 
             // Y ---------------------------------------------------------------
             if (ball.getTopBorder() < 1 + step_ball)
